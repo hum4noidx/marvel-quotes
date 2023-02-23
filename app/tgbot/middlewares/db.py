@@ -6,6 +6,7 @@ from sqlalchemy.orm import sessionmaker
 
 from infrastructure.database.repositories.admin import AdminRepo
 from infrastructure.database.repositories.bot import BotRepo
+from infrastructure.database.repositories.quote import QuoteReader
 from infrastructure.database.repositories.repo import SQLAlchemyRepo
 from infrastructure.database.repositories.user import UserRepo, UserReader
 
@@ -28,4 +29,5 @@ class DbSessionMiddleware(BaseMiddleware):
             data["bot_repo"] = BotRepo(session)
             data["user_reader"] = UserReader(session)
             data["user_repo"] = UserRepo(session)
+            data['quote_reader'] = QuoteReader(session)
             return await handler(event, data)
