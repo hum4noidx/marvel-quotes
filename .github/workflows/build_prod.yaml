@@ -83,7 +83,7 @@ jobs:
             -o docker-compose.yaml \
             "$GITHUB_API_URL/repos/hum4noidx/marvel-quotes/contents/docker-compose.prod.yaml?ref=develop"
             set -eu
-            sudo echo "$ENV_FILE_CONTENT" > .env
+            echo "$ENV_FILE_CONTENT" > .env
             docker login -u ${{ github.repository_owner }} -p ${{ secrets.TOKEN }} ghcr.io
             eval $COMPOSE_CMD pull
             eval $COMPOSE_CMD up -d --force-recreate --build main
