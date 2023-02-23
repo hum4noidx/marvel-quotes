@@ -1,0 +1,18 @@
+services:
+  main:
+    image: ghcr.io/hum4noidx/marvel-quotes
+    restart: "unless-stopped"
+    ports:
+      - "4002:4002"
+    env_file:
+      - .env
+    volumes:
+      - logs:/app/logs
+
+volumes:
+  logs:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: var/log/marvel-quotes
