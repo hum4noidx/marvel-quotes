@@ -15,4 +15,4 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/hm4nx/logs
+      device: var/log/marvel-quotes
