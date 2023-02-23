@@ -3,7 +3,7 @@ name: CI/CD PROD
 on:
   push:
     branches:
-      - docker
+      - feature/docker
 
 env:
   REGISTRY: ghcr.io
