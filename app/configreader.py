@@ -5,7 +5,6 @@ from pydantic import BaseSettings, PostgresDsn, RedisDsn, validator
 
 class Config(BaseSettings):
     bot_token: str
-    bot_fsm_storage: str
     postgres_dsn: PostgresDsn
     redis_dsn: Optional[RedisDsn]
     redis_pass: Optional[str]
@@ -16,24 +15,6 @@ class Config(BaseSettings):
     webhook_path: Optional[str]
     environment: Optional[str]
     service_name: Optional[str]
-
-    @validator("bot_fsm_storage")
-    def validate_bot_fsm_storage(cls, v):
-        if v not in ("memory", "redis"):
-            raise ValueError("Incorrect 'bot_fsm_storage' value. Must be one of: memory, redis")
-        return v
-
-    # @validator("redis_dsn")
-    # def validate_redis_dsn(cls, v, values):
-    #     if values["bot_fsm_storage"] == "redis" and not v:
-    #         raise ValueError("Redis DSN string is missing!")
-    #     return v
-
-    @validator("webhook_path")
-    def validate_webhook_path(cls, v, values):
-        if values["webhook_domain"] and not v:
-            raise ValueError("Webhook path is missing!")
-        return v
 
     class Config:
         env_file = '../bot.ini'
