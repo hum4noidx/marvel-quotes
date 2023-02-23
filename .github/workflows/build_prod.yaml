@@ -81,7 +81,7 @@ jobs:
             -H "Accept: application/vnd.github.v3.raw" \
             -H "Authorization: token $GITHUB_TOKEN" \
             -o docker-compose.yaml \
-            "$GITHUB_API_URL/repos/hum4noidx/marvel-quotes/contents/docker-compose.prod.yaml?ref=develop"
+            "$GITHUB_API_URL/repos/hum4noidx/marvel-quotes/contents/docker-compose.prod.yaml?ref=feature/docker"
             set -eu
             echo "$ENV_FILE_CONTENT" > .env
             docker login -u ${{ github.repository_owner }} -p ${{ secrets.TOKEN }} ghcr.io
