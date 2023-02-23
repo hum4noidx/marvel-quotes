@@ -1,10 +1,7 @@
-from pydantic import parse_obj_as
-from sqlalchemy import update, select
+from sqlalchemy import update
 
 from domain import dto
-from domain.dto.user import UserDTO
 from infrastructure.database.models.bot_status import BotStatus
-from infrastructure.database.models.user import User
 from infrastructure.database.repositories.repo import SQLAlchemyRepo
 
 

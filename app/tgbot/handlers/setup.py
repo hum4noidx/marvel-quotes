@@ -5,6 +5,7 @@ from aiogram_dialog import DialogRegistry
 
 from tgbot.filters.admin import IsAdmin
 from tgbot.handlers.admin.admin import register_admin_router
+from tgbot.handlers.inline.inline_search import inline_router
 from tgbot.handlers.user import main_menu
 from tgbot.handlers.user.start import register_user_router
 from tgbot.middlewares.db import DbSessionMiddleware
@@ -53,6 +54,7 @@ def register_handlers(dp: Dispatcher):
 
     register_admin_router(admin_router)
     register_user_router(user_router)
+    dp.include_router(inline_router)
     dp.include_router(admin_router)
     dp.include_router(trader_router)
     dp.include_router(user_router)

@@ -21,7 +21,7 @@ async def main():
     if config.environment == 'PRODUCTION':
 
         logging.basicConfig(
-            filename='bot_webhook.log',
+            filename='logs/marvel_quotes_prod.log',
             filemode='a',
             level=logging.INFO,
             format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
