@@ -43,7 +43,7 @@ async def fetch_inline(inline_query: types.InlineQuery, quote_reader: QuoteReade
     """
     Inline query handler for all quotes
     """
-    logger.info('Inline query: %s', inline_query.id)
+    logger.info(f'Inline query: {inline_query.id} by {inline_query.from_user.id} - {inline_query.from_user.username}')
     quotes: list[QuoteDTO] = await quote_reader.get_all_quotes()
     items = []
     for quote in quotes:
